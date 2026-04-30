@@ -13,7 +13,7 @@ const SummaryCard = () => {
     },
     {
       title: "Active Events",
-      value: "20",
+      value: "22",
       icon: <FaCalendarAlt size={20} />,
       color: "bg-green-500",
     },
