@@ -6,20 +6,27 @@ import { Route, Routes } from "react-router-dom";
 import { EventsDetails } from "./pages/EventsDetails";
 import AIMatching from "./pages/AIMatching";
 import { BloodDonation } from "./pages/BloodDonation";
-
+import Settings from "./pages/Setting";
+import Message from "./pages/Message";
+import Report from "./pages/Reports"
+import Attendances from "./pages/Attendance"
 
 function App() {
   return (
     <>
-       <Routes>
-         <Route path="/blooddonationdetails/:id" element={<BloodDonation/>}></Route>
-            <Route path="/inforaimatching" element={<AIMatching/>}></Route>
-         <Route path="/eventdetails" element={<EventsDetails/>}></Route>
-        <Route path="/volunteerdata" element={<Volunteer/>}></Route>
-       <Route path="/dashboard" element={<Dashboard />}></Route>
+      <Routes>
+        <Route path="/attendancevolunteer" element={<Attendances />}></Route>
+        <Route path="/reportsvolunteer" element={<Report />}></Route>
+        <Route path="/volunteermessage" element={<Message />}></Route>
+        <Route path="/aisetting" element={<Settings />}></Route>
+        <Route path="/blooddonationdetails/:id" element={<BloodDonation />}></Route>
+        <Route path="/inforaimatching" element={<AIMatching />}></Route>
+        <Route path="/eventdetails" element={<EventsDetails />}></Route>
+        <Route path="/volunteerdata" element={<Volunteer />}></Route>
+        <Route path="/dashboard" element={<Dashboard />}></Route>
         <Route path="/" element={<LoginPage />}></Route>
-           <Route path="/*" element={<div >No page exist with this name</div>}></Route>
-      </Routes>
+        <Route path="/*" element={<div >No page exist with this name</div>}></Route>
+      </Routes>        
     </>
   );
 }

@@ -24,7 +24,7 @@ const data = [
 const LineChartData = () => {
   return (
     <div className="w-full h-[320px] bg-white  rounded-xl p-3">
-      <ResponsiveContainer width="100%" height="100%">
+      <ResponsiveContainer width="100az%" height="100%">
         <LineChart
           data={data}
           margin={{

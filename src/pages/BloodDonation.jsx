@@ -1,6 +1,7 @@
 import React, { useState, } from "react";
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import { MailCheck, X } from "lucide-react";
 import { matchPath, useParams } from "react-router-dom";
 import { eventsData } from "../constant";
@@ -13,14 +14,14 @@ export const BloodDonation = () => {
         <div className="flex min-h-screen bg-gray-100">
             <Sidebar />
 
-            <div className="flex-1 flex flex-col">
+            <div className="flex-1 flex flex-col mb-[70px]">
                 <Navbar />
-                <div className="p-6 m-20 ml-60">
-                    <div className="bg-white rounded-2xl shadow-md overflow-hidden">
+                <div className="p-6 m-20 ml-60 ">
+                    <div className="bg-white rounded-2xl shadow-md overflow-hidden ">
                         <img
                             src={matchedEvent.image}
                             alt={matchedEvent.name}
-                            className="w-full h-[400px] object-cover text-red-400"
+                            className="w-full h-[600px] object-cover text-red-400"
                         />
 
                         <div className="p-6">
@@ -31,7 +32,6 @@ export const BloodDonation = () => {
                                     </h2>
                                     <p className={`${matchedEvent.location ? "text-sm" : "text-green-500 "}`}>
                                         {matchedEvent.location ? matchedEvent.location : "---N/A---"}
-￼
                                     </p>
                                 </div>
 
@@ -39,7 +39,6 @@ export const BloodDonation = () => {
                                     <h2 className="text-lg font-semibold text-blue-600">
                                         Date:
                                     </h2>
-
                                     <p className={`${matchedEvent.date ? "text-sm" : "text-red-500 "}`}>{matchedEvent.date ? matchedEvent.date : "---N/A---"}</p>
 
                                 </div>
@@ -56,7 +55,7 @@ export const BloodDonation = () => {
                                     </h2>
 
                                     <p className="text-gray-700 font-medium">
-                                        AI Volunteer Foundation 
+                                        AI Volunteer Foundation
                                     </p>
 
                                     <p className="text-sm text-gray-600 mb-3">
@@ -64,14 +63,14 @@ export const BloodDonation = () => {
                                     </p>
 
                                     <div className="space-y-2 text-sm text-gray-700">
-                                        <div className="flex gap-3 ">
+                                        <div className="flex gap-8 p-3 ">
                                             <p >
                                                 <span className="font-semibold">Date:</span>
                                                 <span className={`${matchedEvent.date ? "text-sm " : "text-red-500 "}`}>{matchedEvent.date ? matchedEvent.date : "---N/A---"}</span>
                                             </p> |
 
                                             <p>
-                                                <span className="font-semibold">Time                            
+                                                <span className="font-semibold">Time
                                                     :</span>
                                                 <span className={`${matchedEvent.time ? "text-sm" : "text-yellow-400"}`}>{matchedEvent.time ? matchedEvent.time : "-----N/A---"}</span>
                                             </p>
@@ -95,7 +94,7 @@ export const BloodDonation = () => {
                                 </p>
                             </div>
 
-                          
+
                             <button
                                 onClick={() => setOpenModal(true)}
                                 className="mt-6 px-6 py-3 bg-red-600 text-white rounded-xl hover:bg-red-700 transition "
@@ -104,6 +103,7 @@ export const BloodDonation = () => {
                             </button>
                         </div>
                     </div>
+                    <Footer />
                 </div>
             </div>
 
@@ -143,7 +143,7 @@ export const BloodDonation = () => {
                             <select className="border p-3 rounded-lg" required>
                                 <option value="">Select Gender</option>
                                 <option>Male</option>
-                                <option>Female</option>  
+                                <option>Female</option>
                                 <option>Other</option>
                             </select>
 
@@ -186,8 +186,8 @@ export const BloodDonation = () => {
                                 required
                             />
 
-                            <inputact usenaviagte
-                                type="number"
+                            <input
+                                type="text"
                                 placeholder="Weight (kg)"
                                 className="border p-3 rounded-lg"
                                 required
@@ -237,8 +237,9 @@ export const BloodDonation = () => {
                         </form>
                     </div>
                 </div>
+                
             )}
-
+           
         </div>
     );
 };

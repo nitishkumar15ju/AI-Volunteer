@@ -1,155 +1,334 @@
 import React, { useState } from "react";
-import { CgProfile } from "react-icons/cg";
 import { HiMenu, HiX } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
+import { Edit2, Save } from "lucide-react";
 
-const Navbar = () => {
+const Navbar = ({ darkMode }) => {
   const [DarkToggle, setChangeToggle] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [profileOpen, setProfileOpen] = useState(false);
+  const [editMode, setEditMode] = useState(false);
 
   const navigate = useNavigate();
 
-  const GoDashboard = () => {
-    navigate("/dashboard");
-    setMenuOpen(false);
+  // PROFILE DATA
+  const [profileData, setProfileData] = useState({
+    name: "AI Volunteer User",
+    email: "nitishkumar7707@gmail.com",
+    role: "Volunteer Member",
+    phone: "+91 9876543210",
+    location: "Panipat, Haryana",
+  });
+  // HANDLE INPUT CHANGE
+  const handleChange = (e) => {
+    setProfileData({
+      ...profileData,
+      [e.target.name]: e.target.value,
+    });
+  };
+  // SAVE PROFILE
+  const handleSave = () => {
+    setEditMode(false);
+    alert("Profile Updated Successfully");
+  };
+
+  // logout 
+  const handleLogout = () => {
+    navigate("/");
   };
 
   return (
-    <div
-      className={`fixed top-0 lg:left-[200px] left-0 right-0 z-50 px-4 sm:px-6 py-3 shadow-md transition-all duration-300 ${
-        DarkToggle ? "bg-black text-white" : "bg-white text-black"
-      }`}
-    >
-      <div className="flex items-center justify-between gap-4">
-        {/* Logo */}
-        <div className="flex items-center gap-3">
-          
+    <>
+      {/* NAVBAR */}
+      <div
+        className={`fixed top-0 lg:left-[200px] left-0 right-0 z-50 px-4 sm:px-6 py-3 shadow-md transition-all duration-300 ${darkMode
+          ? "bg-black text-white"
+          : "bg-white text-black"
+          }`}
+      >
+        <div className="flex items-center justify-between gap-4">
 
+          {/* TITLE */}
           <h4 className="font-semibold text-sm sm:text-lg whitespace-nowrap">
             Ai-Volunteer Management
           </h4>
-        </div>
 
-        {/* Desktop Menu */}
-        <div className="hidden lg:flex items-center gap-6 flex-1 justify-end">
-          {/* Search */}
-          <div className="flex items-center">
+          {/* DESKTOP */}
+          <div className="hidden lg:flex items-center gap-6 flex-1 justify-end">
+
             <input
               type="text"
               placeholder="Search..."
-              className="border px-3 py-1 rounded-l-md outline-none w-56 text-black"
+              className="border px-3 py-1 rounded-md w-56 text-black outline-none"
             />
-            <button className="bg-blue-500 text-white px-4 py-1 rounded-r-md hover:bg-blue-600">
+
+            <button className="bg-blue-600 text-white px-4 py-1 rounded-md">
               Search
             </button>
-          </div>
 
-          {/* Buttons */}
-          <a href="http://character.ai/" target="_blank" rel="noreferrer">
-            <button className="px-3 py-1 rounded-md hover:bg-blue-500 hover:text-white transition">
-              Chat with Oli
-            </button>
-          </a>
+            {/* PROFILE */}
+            <div className="flex items-center gap-1">
 
-          {/* Dark Mode */}
-          <div className="flex items-center gap-3">
-            <img
-              src={
-                DarkToggle
-                  ? "/assets/darkmood.png"
-                  : "/assets/sunriselogo.png"
-              }
-              alt=""
-              className="h-5 rounded-full bg-white"
-            />
-
-            <div
-              onClick={() => setChangeToggle(!DarkToggle)}
-              className={`w-10 h-5 flex items-center rounded-full p-1 cursor-pointer transition ${
-                DarkToggle
-                  ? "bg-gray-200 border-2 border-blue-400"
-                  : "bg-gray-400"
-              }`}
-            >
               <div
-                className={`w-3 h-3 bg-white rounded-full transition ${
-                  DarkToggle ? "translate-x-4" : "translate-x-0"
-                }`}
-              />
+                onClick={() => setProfileOpen(true)}
+                className="cursor-pointer hover:scale-105 transition relative"
+              >
+                <img
+                  src="/assets/profile1.jpeg"
+                  alt="profile"
+                  className="h-9 w-9 rounded-full object-cover border-2"
+                />
+
+                <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-400 border-2 border-white rounded-full"></span>
+              </div>
+              <h1 onClick={() => setProfileOpen(true)} className="text-black-lg cursor-pointer"></h1>
             </div>
 
-            <CgProfile size={28} />
           </div>
+
+          {/* MOBILE MENU */}
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="lg:hidden text-2xl"
+          >
+            {menuOpen ? <HiX /> : <HiMenu />}
+          </button>
         </div>
 
-        {/* Mobile Menu Icon */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="lg:hidden text-2xl"
-        >
-          {menuOpen ? <HiX /> : <HiMenu />}
-        </button>
+        {/* MOBILE MENU CONTENT */}
+        {menuOpen && (
+          <div className="lg:hidden mt-4 bg-gray-100 p-4 rounded-xl space-y-3">
+
+            <input
+              type="text"
+              placeholder="Search..."
+              className="border px-3 py-2 rounded-md w-full"
+            />
+
+            <button className="bg-blue-600 text-white py-2 w-full rounded-md">
+              Search
+            </button>
+
+            <div
+              onClick={() => setProfileOpen(true)}
+              className="flex items-center cursor-pointer"
+            >
+              <img
+                src="/assets/profile1.jpeg"
+                alt="profile"
+                className="h-10 w-10 rounded-full object-cover border-2 border-blue-500"
+              />
+            </div>
+          </div>
+        )}
       </div>
 
-      {/* Mobile Menu */}
-      {menuOpen && (
+      {/* PROFILE MODAL */}
+      {profileOpen && (
         <div
-          className={`lg:hidden mt-4 rounded-xl p-4 space-y-4 shadow-md ${
-            DarkToggle ? "bg-gray-900" : "bg-gray-100"
-          }`}
+          className="fixed inset-0 bg-black/60 flex items-center justify-center z-[1000]"
+          onClick={() => setProfileOpen(false)}
         >
-          {/* Search */}
-          <div className="flex flex-col gap-2">
-            <input
-              type="text"
-              placeholder="Search..."
-              className="border px-3 py-2 rounded-md text-black"
-            />
-            <button className="bg-blue-500 text-white py-2 rounded-md">
-              Search
-            </button>
-          </div>
-
-          {/* Buttons */}
-          <button
-            onClick={GoDashboard}
-            className="block w-full text-left px-3 py-2 rounded-md hover:bg-blue-500 hover:text-white"
-          >
-            Dashboard
-          </button>
-
-          <a href="http://character.ai/" target="_blank" rel="noreferrer">
-            <button className="block w-full text-left px-3 py-2 rounded-md hover:bg-blue-500 hover:text-white">
-              Chat with Oli
-            </button>
-          </a>
-
-          {/* Theme */}
-          <div className="flex items-center justify-between">
-            <span>Dark Mode</span>
-
-            <div
-              onClick={() => setChangeToggle(!DarkToggle)}
-              className={`w-10 h-5 flex items-center rounded-full p-1 cursor-pointer ${
-                DarkToggle
-                  ? "bg-gray-200 border-2 border-blue-400"
-                  : "bg-gray-400"
+          <div
+            className={`w-[500px] rounded-3xl shadow-2xl overflow-hidden ${darkMode
+              ? "bg-gray-900 text-white"
+              : "bg-white text-black"
               }`}
-            >
-              <div
-                className={`w-3 h-3 bg-white rounded-full transition ${
-                  DarkToggle ? "translate-x-4" : "translate-x-0"
-                }`}
-              />
+            onClick={(e) => e.stopPropagation({})}
+          >
+            {/* HEADER */}
+            <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-5 text-white text-center relative">
+
+              <button
+                onClick={() => setProfileOpen(false)}
+                className="absolute right-4 top-3 text-xl"
+              >
+                ✕
+              </button>
+
+              {/* PROFILE IMAGE */}
+              <div className="relative inline-block">
+                <img
+                  src="/assets/profile1.jpeg"
+                  alt="profile"
+                  className="h-24 w-24 rounded-full border-4 border-white object-cover mx-auto"
+                />
+
+                <span className="absolute bottom-2 right-2 w-4 h-4 bg-green-400 rounded-full border-2 border-white"></span>
+              </div>
+
+              {/* NAME */}
+              {editMode ? (
+                <input
+                  type="text"
+                  name="name"
+                  value={profileData.name}
+                  onChange={handleChange}
+                  className="mt-3 text-center bg-white text-black rounded-lg px-3 py-1 outline-none"
+                />
+              ) : (
+                <h2 className="mt-3 font-bold text-xl">
+                  {profileData.name}
+                </h2>
+              )}
+
+              {/* ROLE */}
+              {editMode ? (
+                <input
+                  type="text"
+                  name="role"
+                  value={profileData.role}
+                  onChange={handleChange}
+                  className="mt-2 text-center bg-white text-black rounded-lg px-3 py-1 outline-none"
+                />
+              ) : (
+                <p className="text-sm opacity-80">
+                  {profileData.role}
+                </p>
+              )}
+            </div>
+
+            {/* BODY */}
+            <div className="p-5 space-y-4">
+
+              {/* EMAIL */}
+              <div>
+                <label className="text-xl font-semibold">
+                  Email :
+                </label>
+
+                {editMode ? (
+                  <input
+                    type="email"
+                    name="email"
+                    value={profileData.email}
+                    onChange={handleChange}
+                    className="w-full mt-1 border rounded-xl px-3 py-2 outline-none text-black"
+                  />
+                ) : (
+                  <p className="text-gray-500 text-sm">
+                    {profileData.email}
+                  </p>
+                )}
+              </div>
+
+              {/* PHONE */}
+              <div>
+                <label className="text-xl font-semibold">
+                  Phone :
+                </label>
+
+                {editMode ? (
+                  <input
+                    type="text"
+                    name="phone"
+                    value={profileData.phone}
+                    onChange={handleChange}
+                    className="w-full mt-1 border rounded-xl px-3 py-2 outline-none text-black"
+                  />
+                ) : (
+                  <p className="text-gray-500 text-sm">
+                    {profileData.phone}
+                  </p>
+                )}
+              </div>
+
+              {/* LOCATION */}
+              <div>
+                <label className="text-xl font-semibold">
+                  Location :
+                </label>
+
+                {editMode ? (
+                  <input
+                    type="text"
+                    name="location"
+                    value={profileData.location}
+                    onChange={handleChange}
+                    className="w-full mt-1 border rounded-xl px-3 py-2 outline-none text-black"
+                  />
+                ) : (
+                  <p className="text-gray-500 text-sm">
+                    {profileData.location}
+                  </p>
+                )}
+              </div>
+
+              {/* STATS */}
+              <div className="grid grid-cols-3 gap-3 text-center pt-2">
+
+                <div className="bg-gray-100 p-3 rounded-xl">
+                  <h3 className="font-bold text-blue-600">
+                    24
+                  </h3>
+
+                  <p className="text-xs">
+                    Tasks
+                  </p>
+                </div>  
+
+                <div className="bg-gray-100 p-3 rounded-xl">
+                  <h3 className="font-bold text-green-600">
+                    Active
+                  </h3>
+
+                  <p className="text-xs">
+                    Status
+                  </p>
+                </div>
+
+                <div className="bg-gray-100 p-3 rounded-xl">
+                  <h3 className="font-bold text-purple-600">
+                    NGO
+                  </h3>
+
+                  <p className="text-xs">
+                    Role
+                  </p>
+                </div>
+              </div>
+
+              {/* BUTTONS */}
+              <div className="space-y-3 pt-4">
+
+                {!editMode ? (
+                  <button
+                    onClick={() => setEditMode(true)}
+                    className="w-full bg-blue-600 text-white py-2 rounded-xl flex items-center justify-center gap-2"
+                  >
+                    <Edit2 size={18} />
+                    Edit Profile
+                  </button>
+                ) : (
+                  <button
+                    onClick={handleSave}
+                    className="w-full bg-green-600 text-white py-2 rounded-xl flex items-center justify-center gap-2"
+                  >
+                    <Save size={18} />
+                    Save Profile
+                  </button>
+                )}
+
+                <button
+                  className="w-full bg-white text-black border-2 py-2 rounded-xl"
+                >
+                  +Add account
+                </button>
+
+                <button
+                  onClick={handleLogout}
+                  className="w-full bg-red-500 text-white py-2 rounded-xl"
+                >
+                  Logout
+                </button>
+
+              </div>
             </div>
           </div>
-
-          <div className="flex justify-center pt-2">
-            <CgProfile size={30} />
-          </div>
         </div>
+
       )}
-    </div>
+    </>
   );
 };
 

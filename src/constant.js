@@ -13,19 +13,30 @@ export const eventsData = [
   },
   {
     id: 2,
+    name: "Medical Help Camp",
+    image: "/assets/medicalvolunteer.png",
+    date: "",
+    time: "11:00 AM",
+    location: "Civil Hospital",
+    volunteers: 12,
+    status: "Upcoming",
+    description: "A free health camp provides accessible, no-cost medical check-ups, diagnostic screenings, and treatments to underserved communities. These camps aim to bridge healthcare gaps by offering early disease detection, preventative care, and health awareness directly to local neighborhoods",
+  },
+  {
+    id: 3,
     name: "Food Distribution Drive",
     image: "/assets/foodimg.jpeg",
-    date: "",
+    date: "25 May 2026",
     time: "09:00 AM",
     location: "Model Town",
     volunteers: 18,
     status: "Upcoming",
     description: "A food distribution drive is a community-based initiative designed to collect, prepare, and distribute food—ranging from non-perishable staples to freshly cooked meals—to individuals and families facing hunger, poverty, or food insecurity.",
-  
-  
+
+
   },
   {
-    id: 3,
+    id: 4,
     name: "Festival Fusion",
     image: "/assets/fusionimg.jpeg",
     date: "",

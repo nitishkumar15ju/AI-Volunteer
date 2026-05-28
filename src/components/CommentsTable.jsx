@@ -86,6 +86,7 @@ const CommentsTable = () => {
       body: "",
       views: "",
     });
+    setOpenModal(true);
   };
 
   // Edit
@@ -142,43 +143,44 @@ const CommentsTable = () => {
           <table className="w-full border-collapse border border-gray-200">
             <thead className="bg-gray-100">
               <tr className="text-black">
-                <th className="border p-3">ID</th>
-                <th className="border p-3">UserID</th>
-                <th className="border p-3">Title</th>
-                <th className="border p-3">Body</th>
-                <th className="border p-3">Views</th>
-                <th className="border p-3">Update</th>
-                <th className="border p-3">Delete</th>
+                <th className=" p-3">ID</th>
+                <th className=" p-3">UserID</th>
+                <th className=" p-3">Title</th>
+                <th className=" p-3">Body</th>
+                <th className=" p-3">Views</th>
+                <th className=" p-3">Update</th>
+                <th className=" p-3">Delete</th>
               </tr>
             </thead>
 
-            <tbody>
-              {users.slice(0, 5).map((comment) => (
-                <tr key={comment.id} className="hover:bg-gray-50">
-                  <td className="border p-3 text-black">{comment.id}</td>
-                  <td className="border p-3">{comment.userId}</td>
-                  <td className="border p-3">{comment.title}</td>
-                  <td className="border p-3">{comment.body}</td>
-                  <td className="border p-3">{comment.views}</td>
 
-                  <td className="border p-3 text-center">
+            <tbody>
+              {users.slice(0, 7).map((comment) => (
+                <tr key={comment.id} className="hover:bg-gray-50">
+                  <td className=" p-3 text-black">#{comment.id}</td>
+                  <td className=" p-3"><span className=" p-2 rounded-3xl bg-blue-200">{comment.userId}</span></td>
+                  <td className=" p-3">{comment.title}</td>
+                  <td className=" p-3">{comment.body}</td>
+                  <td className=" p-3"><span className=" p-2 rounded-3xl bg-green-200">{comment.views}</span></td>
+
+                  <td className=" p-3 text-center">
                     <button
                       onClick={() => handleEditData(comment)}
-                      className="bg-yellow-500 text-white px-3 py-2 rounded-lg flex items-center gap-2 mx-auto"
+                      className="bg-yellow-500 text-white px-3 py-2 rounded-3xl flex items-center gap-2 mx-auto"
                     >
                       <RiEdit2Fill />
                       Edit
                     </button>
                   </td>
 
-                  <td className="border p-3 text-center">
+                  <td className=" p-3 text-center">
                     <button
                       onClick={() => handleDeleteData(comment.id)}
-                      className="bg-red-600 text-white px-3 py-2 rounded-lg flex items-center gap-2 mx-auto"
+                      className="bg-red-600 text-white px-3 py-2 rounded-3xl flex items-center gap-2 mx-auto"
                     >
                       <Trash2 size={18} />
                       Delete
-                    </button>
+                    </button>  
                   </td>
                 </tr>
               ))}
