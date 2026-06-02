@@ -53,8 +53,8 @@ export default function VolunteerAttendancePage() {
       image:
         "https://randomuser.me/api/portraits/women/65.jpg",
       event: "Food Distribution",
-      checkIn: "--",
-      checkOut: "--",
+      checkIn: "- -",
+      checkOut: "- -",
       status: "Absent",
       hours: "0h",
     },
@@ -92,7 +92,7 @@ export default function VolunteerAttendancePage() {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
-    });
+    });  
   };
 
   // ================= ADD ATTENDANCE =================
@@ -143,7 +143,7 @@ export default function VolunteerAttendancePage() {
     setFormData({
       name: "",
       event: "",
-      status: "Present",
+      status: "Present", 
     });
   };
 
@@ -231,11 +231,11 @@ export default function VolunteerAttendancePage() {
 
   return (
 
-    <div className="flex min-h-screen bg-[#f5f7ff]">
+    <div className="flex min-h-screen bg-gray-100">
 
       <Sidebar />
 
-      <div className="flex-1 lg:ml-[220px] mt-[70px] mb-[300px] ">
+      <div className="flex-1 lg:ml-[270px] mt-[100px] mb-[300px]  mr-[50px]">
 
         <Navbar />
 
@@ -526,7 +526,7 @@ export default function VolunteerAttendancePage() {
 
                   <tr
                     key={item.id}
-                    className="border-b hover:bg-gray-50"
+                    className="border-b hover:bg-gray-50 text-left"
                   >
 
                     <td className="py-4">
@@ -545,7 +545,7 @@ export default function VolunteerAttendancePage() {
                             {item.name}
                           </h3>
 
-                          <p className="text-sm text-gray-500">
+                          <p className="text-sm text-gray-500">  
                             ID #{item.id}
                           </p>
 
@@ -555,7 +555,7 @@ export default function VolunteerAttendancePage() {
 
                     </td>
 
-                    <td>{item.event}</td>
+                    <td >{item.event}</td>
 
                     <td>{item.checkIn}</td>
 
@@ -616,8 +616,8 @@ export default function VolunteerAttendancePage() {
 
                   <button
                     onClick={() =>
-                      setShowCalendar(false)
-                    }
+                      setShowCalendar(false) 
+                    } 
                   >
                     ✕
                   </button>

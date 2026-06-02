@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import {
   LayoutDashboard,
   Users,
@@ -13,6 +13,10 @@ import {
 
 
 const Sidebar = ({ darkMode }) => {
+
+  const location = useLocation();
+
+
 
   const users = [
     {
@@ -34,7 +38,7 @@ const Sidebar = ({ darkMode }) => {
     },
 
     {
-      name: "AI Matching",
+      name: "AssginVolunteer",
       path: "/inforaimatching",
       icon: <BrainCircuit size={20} />,
     },
@@ -62,18 +66,25 @@ const Sidebar = ({ darkMode }) => {
       path: "/aisetting",
       icon: <Settings size={20} />,
     },
+      {
+      name: "AIAssistant",
+      path: "/aiassistant",
+      icon: <Settings size={20} />,
+    },
+    
+    
   ];
 
 
   return (
-    // <div className="fixed top-0 left-0 overflow-hidden w-[200px] h-[760px] bg-white shadow  ">
     <div
-      className={`fixed top-0 left-0 overflow-hidden w-[200px] h-[760px] shadow-xl transition-all duration-300 ${darkMode
+      className={`fixed top-0 left-0  overflow-hidden w-[220px] h-[760px] transition-all duration-300 cursor-pointer
+  ${darkMode
           ? "bg-gray-900 text-white"
           : "bg-white text-black"
         }`}
     >
-      <div >
+      <div>
         <img
           src={"/assets/logovoluntrimg.png "}
           alt="logo"
@@ -81,33 +92,38 @@ const Sidebar = ({ darkMode }) => {
         />
       </div>
 
-      {users.map((item, index) => (
+      {users.map((item, index) => {
+        const isActive = location.pathname === item.path;
+        console.log("isActive", isActive)
+
+        return(
         <Link
           key={index}
 
           to={item.path}
-          className={`flex items-center gap-3 px-3 py-3 rounded-2xl transition-all duration-300 hover:scale-[1.02] ${darkMode
-              ? "hover:bg-gray-800"
-              : "hover:bg-gray-100"
-            }`}
+          className={`flex items-center gap-3 px-3 py-3   transition-all duration-300 hover:scale-[1.02] 
+            ${isActive?"bg-gray-400 text-black":""
+                    
+        
+      }`}
+
         >
-            <div
-              className={`p-2 rounded-xl transition-all duration-300 ${
-                darkMode
-                  ? "bg-gray-800 text-cyan-400 group-hover:bg-cyan-500 group-hover:text-white"
-                  : "bg-blue-100 text-blue-600 group-hover:bg-blue-600 group-hover:text-white"
+          <div
+            className={`p-2 rounded-xl transition-all duration-300 ${darkMode
+                ? "bg-gray-800 text-cyan-400 group-hover:bg-cyan-500 group-hover:text-black"
+                : "bg-blue-100 text-blue-600 group-hover:bg-blue-600 group-hover:text-black"
               }`}
-            >
-              {item.icon}
-            </div>
+          >
+            {item.icon}
+          </div>
           <p className={`text-sm font-medium whitespace-nowrap ${darkMode
-              ? "text-white"
-              : "text-black"
+            ? " text-white"
+            : "text-black"
             }`}>
             {item.name}
           </p>
         </Link>
-      ))}
+      )})}
     </div>
   );
 };

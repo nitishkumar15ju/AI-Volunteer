@@ -57,14 +57,14 @@ export const EventsDetails = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-white">
+    <div className="flex min-h-screen bg-gray-100">
       <div className="hidden lg:block fixed left-0 top-0 h-full w-64">
         <Sidebar />
       </div>
 
       {/* Mobile Sidebar */}
       {sidebarOpen && (
-        <div className="fixed inset-0 z-50 flex">
+        <div className="fixed inset-0  flex ">
           <div className="w-64 bg-white shadow-lg">
             <Sidebar />
           </div>
@@ -76,7 +76,7 @@ export const EventsDetails = () => {
         </div>
       )}
 
-      <div className="flex-1 lg:ml-64 mt-[100px] mr-20 mb-[300px]">
+      <div className="flex-1 lg:ml-[320px] mt-[130px] mr-20 mb-[300px]">
         <Navbar />
 
         <div className="lg:hidden px-4 pt-4 ">
@@ -123,23 +123,23 @@ export const EventsDetails = () => {
             {/* AI LOADER */}
             <div className="mt-10 lg:mt-0 flex justify-center items-center">
 
-                <div className="  mt-10 h-20 w-20 rounded-full bg-[#0b0b10] relative overflow-hidden flex items-center justify-center shadow-[0_0_60px_rgba(168,85,247,0.4)]">
+              <div className="  mt-10 h-20 w-20 rounded-full bg-[#0b0b10] relative overflow-hidden flex items-center justify-center shadow-[0_0_60px_rgba(168,85,247,0.4)]">
 
-                  {/* Outer Ring */}
-                  <div className="absolute inset-0 border-[6px] border-cyan-400/20 rounded-full"></div>
+                {/* Outer Ring */}
+                <div className="absolute inset-0 border-[6px] border-cyan-400/20 rounded-full"></div>
 
-                  {/* Rotating Ring */}
-                  <div className="absolute h-10 w-10 border-[5px] border-t-cyan-400 border-r-purple-500 border-b-transparent border-l-transparent rounded-full animate-spin"></div>
+                {/* Rotating Ring */}
+                <div className="absolute h-10 w-10 border-[5px] border-t-cyan-400 border-r-purple-500 border-b-transparent border-l-transparent rounded-full animate-spin"></div>
 
-                  {/* Glow */}
-                  <div className="absolute h-24 w-24 bg-purple-500/20 blur-2xl rounded-full"></div>
+                {/* Glow */}
+                <div className="absolute h-24 w-24 bg-purple-500/20 blur-2xl rounded-full"></div>
 
-                  {/* Core */}
-                  <div className="h-6 w-6 rounded-full bg-gradient-to-r from-cyan-400 to-purple-500 animate-pulse shadow-[0_0_30px_#8b5cf6]"></div>
-
-                </div>
+                {/* Core */}
+                <div className="h-6 w-6 rounded-full bg-gradient-to-r from-cyan-400 to-purple-500 animate-pulse shadow-[0_0_30px_#8b5cf6]"></div>
 
               </div>
+
+            </div>
           </div>
 
           {/* LIVE BADGE */}
@@ -150,7 +150,7 @@ export const EventsDetails = () => {
         </div>
 
 
-        <div className=" lg: px-4 sm:px-6 lg:px-10 xl:px-16 pb-10">
+        <div className=" lg: sm: lg:  xl: pb-10">
           {commentLoader ? (
             <div className="flex justify-center items-center h-[70vh]">
               <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-blue-500"></div>
@@ -227,7 +227,7 @@ export const EventsDetails = () => {
                   >
                     <option value="">Select Status</option>
                     <option value="Active">Active</option>
-                    <option value="Upcomin2g">Upcoming</option>
+                    <option value="Upcoming">Upcoming</option>
                     <option value="Completed">Completed</option>
                   </select>
 
@@ -292,6 +292,7 @@ export const EventsDetails = () => {
                             <MapPin size={18} className="text-green-500" />
                           </div>
                           <span>{event.location}</span>
+
                         </div>
 
                         <div className="flex items-center gap-3">
@@ -336,7 +337,7 @@ export const EventsDetails = () => {
           )}
         </div>
         <div className="">
-          <Footer></Footer>
+          <Footer />
         </div>
       </div>
     </div>

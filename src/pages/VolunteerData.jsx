@@ -162,12 +162,12 @@ const VolunteerData = () => {
     <div className="bg-gray-100">
       <Navbar />
 
-      <div className="flex">
+      <div className="flex  ">
         <div className="w-60">
           <Sidebar />
         </div>
 
-        <div className="flex-1 mt-20 mr-10 mb-[300px] ">
+        <div className="flex-1 mt-[130px] mr-20 ml-10 mb-[300px]   ">
            <div className="relative overflow-hidden rounded-3xl p-8 mb-8 bg-gradient-to-r from-[#0f172a] via-[#1e3a8a] to-[#7c3aed] shadow-2xl">
 
             {/* Glow Effects */}
@@ -246,7 +246,7 @@ const VolunteerData = () => {
               <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-blue-500"></div>
             </div>
           ) : (
-            <div className=" bg-white shadow-md mr-10 ml-10">
+            <div className=" bg-white shadow-md ">
               <table className="w-full border-collapse border border-gray-200 rounded-xl">
                 <thead className="bg-gray-100">
                   <tr className="text-black">

@@ -9,9 +9,10 @@ import {
   MoreVertical,
   Sparkles,
   Circle,
+ 
 } from "lucide-react";
 
-const Messages = ({darkMode}) => {
+const Messages = () => {
   const users = [
     { id: 1, name: "Rahul Sharma", msg: "Need volunteers for tomorrow.", time: "2 min", online: true },
     { id: 2, name: "Ankush Choudhary", msg: "Blood donation event details?", time: "1 min", online: true },
@@ -27,11 +28,7 @@ const Messages = ({darkMode}) => {
 
   const [messagesByUser, setMessagesByUser] = useState({
     1: [{ id: 1, sender: "receiver", text: "Hello Rahul 👋" }],
-    2: [],
-    3: [],
-    4: [],
-    5: [],
-    6: [],
+    
   });
 
   const currentMessages = messagesByUser[selectedUser.id] || [];
@@ -73,11 +70,11 @@ const Messages = ({darkMode}) => {
   };
 
   return (
-    <div className="flex min-h-screen bg-gradient-to-br from-slate-100 via-blue-50 to-indigo-100">
+    <div className="flex min-h-screen bg-gray-100">
 
       <Sidebar />
 
-      <div className="flex flex-col flex-1 lg:ml-[220px] ">
+      <div className="flex flex-col flex-1 lg:ml-[290px] mr-[60px] mt-[20px] ">
 
         <Navbar />
 
@@ -162,6 +159,7 @@ const Messages = ({darkMode}) => {
                     className="bg-transparent w-full outline-none text-sm"
                   />
                 </div>
+              
               </div>
 
               {/* USER LIST */}
@@ -216,7 +214,7 @@ const Messages = ({darkMode}) => {
             </div>
 
             {/* CHAT AREA */}
-            <div className="lg:col-span-2 flex flex-col bg-gradient-to-b from-white/70 to-white">
+            <div className="lg:col-span-2 flex flex-col bg-gradient-to-b from-white/70 to-white overflow-hidden">
 
               {/* CHAT HEADER */}
               <div className="bg-white/80 backdrop-blur p-4 flex justify-between items-center border-b">
@@ -240,14 +238,15 @@ const Messages = ({darkMode}) => {
                       {selectedUser.online ? "Online" : "Offline"}
                     </p>
                   </div>
+                   
 
                 </div>
-
-                <MoreVertical className="text-gray-500" />
+               
+                <MoreVertical className="text-gray-500 " />
               </div>
 
               {/* MESSAGES */}
-              <div className="flex-1 overflow-y-auto p-5 space-y-3">
+              <div className="flex-1  h-[500px] overflow-y-auto p-5 space-y-4 bg-gray-50">
 
                 {currentMessages.length === 0 && (
                   <div className="text-center text-gray-400 mt-10">
@@ -300,7 +299,7 @@ const Messages = ({darkMode}) => {
                   onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
                   placeholder="Type a message..."
                   className="flex-1 bg-gray-100 px-4 py-2 rounded-full outline-none text-sm shadow-inner"
-                />
+                /> 
 
                 <button
                   onClick={handleSendMessage}

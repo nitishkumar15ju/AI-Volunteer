@@ -157,7 +157,7 @@ const Dashboard = ({darkMode}) => {
       {/* NAVBAR */}
       <Navbar darkMode = {darkMode} />
 
-      <div className="flex">
+      <div className="flex bg-gray-100 ml-[290px] mr-[60px]">
 
         {/* SIDEBAR */}
         <div className="fixed z-40 h-screen">
@@ -165,7 +165,7 @@ const Dashboard = ({darkMode}) => {
         </div>
 
         {/* MAIN CONTENT */}
-        <div className="flex-1 lg:ml-[220px] p-4 sm:p-6 mt-20 w-full mb-[100px]">
+        <div className="flex-1 lg: p-4 sm:p-6 mt-[100px] w-full mb-[100px]">
 
           {/* HERO SECTION */}
           <div
@@ -191,7 +191,8 @@ const Dashboard = ({darkMode}) => {
                 </h1>
 
                 <p className="text-gray-200 max-w-2xl leading-relaxed">
-                  Monitor volunteer attendance, AI analytics,      th
+                  Monitor volunteer attendance, AI analytics,the 
+
                   reports, growth tracking and engagement.
                 </p>
 
@@ -302,7 +303,7 @@ const Dashboard = ({darkMode}) => {
                       </div>
 
                       <h2 className="text-sm text-gray-400">
-                        {item.title}
+                        {item.title}     
                       </h2>
 
                       <h1 className="text-3xl font-black mt-2">
@@ -351,14 +352,14 @@ const Dashboard = ({darkMode}) => {
                     darkMode
                       ? "text-white"
                       : "text-gray-800"
-                  }`}
+                  }`} 
                 >
                   {item.value}
                 </h1>
 
               </div>
             ))}
-
+ 
           </div>
 
           {/* CHARTS */}
@@ -439,7 +440,6 @@ const Dashboard = ({darkMode}) => {
 
         </div>
       </div>
-
       {/* FOOTER */}
       <Footer />
 

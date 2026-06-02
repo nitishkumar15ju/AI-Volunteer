@@ -2,7 +2,7 @@ import React from "react";
 import LoginPage from "./pages/Login";
 import Dashboard from "./pages/DashBoard"
 import Volunteer from "./pages/VolunteerData"
-import { Route, Routes } from "react-router-dom";
+import { Route, Router, Routes } from "react-router-dom";
 import { EventsDetails } from "./pages/EventsDetails";
 import AIMatching from "./pages/AIMatching";
 import { BloodDonation } from "./pages/BloodDonation";
@@ -10,11 +10,13 @@ import Settings from "./pages/Setting";
 import Message from "./pages/Message";
 import Report from "./pages/Reports"
 import Attendances from "./pages/Attendance"
+import AIAssistant from "./pages/AIAssistant";
 
 function App() {
   return (
     <>
       <Routes>
+        <Route path="/aiassistant" element={<AIAssistant />}></Route>
         <Route path="/attendancevolunteer" element={<Attendances />}></Route>
         <Route path="/reportsvolunteer" element={<Report />}></Route>
         <Route path="/volunteermessage" element={<Message />}></Route>

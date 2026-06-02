@@ -24,12 +24,12 @@ const Settings = () => {
   const [darkMode, setDarkMode] = useState(
     JSON.parse(localStorage.getItem("darkMode")) || false
   );
-useEffect(() => {
-  localStorage.setItem(
-    "darkMode",
-    JSON.stringify(darkMode)
-  );
-}, [darkMode]);
+  useEffect(() => {
+    localStorage.setItem(
+      "darkMode",
+      JSON.stringify(darkMode)
+    );
+  }, [darkMode]);
   const [notifications, setNotifications] = useState(
     JSON.parse(localStorage.getItem("notifications")) ?? true
   );
@@ -124,7 +124,7 @@ useEffect(() => {
       )}
 
       {/* Main Content */}
-      <div className="flex-1 lg:ml-[240px] flex flex-col w-full">
+      <div className="flex-1 lg:ml-[290px] mr-[60px] w-full mt-[40px] ">
         {/* Navbar */}
         <Navbar darkMode={darkMode} />
 
@@ -133,7 +133,7 @@ useEffect(() => {
         <div className="lg:hidden px-4 pt-4 mt-[70px]">
           <button
             onClick={() => setSidebarOpen(true)}
-            className="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-2xl shadow-lg transition"  
+            className="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-2xl shadow-lg transition"
           >
             <Menu size={22} />
           </button>
@@ -156,24 +156,14 @@ useEffect(() => {
 
               <div>
                 <h1 className="text-3xl sm:text-5xl font-black text-white mb-3">
-                   Settings 🚀
+                  Settings 🚀
                 </h1>
 
                 <p className="text-blue-100 text-sm sm:text-base max-w-2xl leading-relaxed">
-                 Manage your account preferences and security...            
-                  </p>
+                  Manage your account preferences and security...
+                </p>
 
-                {/* <div className="flex gap-3 mt-6 flex-wrap">
 
-                  <button className="bg-white text-black px-5 py-2 rounded-xl font-semibold hover:scale-105 transition-all duration-300">
-                    View Reports
-                  </button>
-
-                  <button className="bg-white/10 border border-white/20 backdrop-blur-md text-white px-5 py-2 rounded-xl hover:bg-white/20 transition">
-                    Attendance Analytics
-                  </button>
-
-                </div> */}
               </div>
 
               {/* AI LOADER */}
@@ -206,7 +196,7 @@ useEffect(() => {
 
           </div>
         </div>
-    
+
         {/* Main Settings */}
         <main className="flex-1 px-4 md:px-6 lg:px-8 py-8">
           {pageLoading ? (
@@ -285,7 +275,6 @@ useEffect(() => {
                   </div>
 
 
-
                   {/* Toggle Cards */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {/* Notifications */}
@@ -339,8 +328,8 @@ useEffect(() => {
                         }`}
                     >
                       <div className="flex justify-between items-center">
-                        <div className="flex items-center gap-4">
-                          <div className="bg-indigo-100 p-3 rounded-2xl">
+                        <div className="flex items-center gap-4 bg- black">
+                          <div className="bg-indigo-100 p-3 rounded-2xl"> 
                             <Moon className="text-indigo-600" />
                           </div>
 
@@ -433,7 +422,6 @@ useEffect(() => {
                       <div className="bg-green-100 p-3 rounded-2xl">
                         <Globe className="text-green-600" />
                       </div>
-
                       <div>
                         <h2 className="font-bold text-lg">
                           Language
@@ -462,7 +450,7 @@ useEffect(() => {
 
                   {/* Privacy */}
                   <div
-                    className={`rounded-3xl p-6 shadow-lg hover:shadow-2xl transition ${darkMode
+                    className={`rounded-3xl pt-5 pl-5 pb-5 shadow-lg hover:shadow-2xl transition ${darkMode
                       ? "bg-gray-800"
                       : "bg-white"
                       }`}
@@ -473,7 +461,7 @@ useEffect(() => {
                       </div>
 
                       <div>
-                        <h2 className="font-bold text-lg">  
+                        <h2 className="font-bold text-lg">
                           Privacy & Security
                         </h2>
 
@@ -483,7 +471,7 @@ useEffect(() => {
                       </div>
                     </div>
 
-                    <div className="pl-2 space-y-3 text-sm opacity-80">
+                    <div className=" space-x-2 text-sm opacity-80">
                       <p>✔ Secure Login Enableds</p>
                       <p>✔ Email Verification Active</p>
                       <p>✔ Data Encryption Enabled</p>

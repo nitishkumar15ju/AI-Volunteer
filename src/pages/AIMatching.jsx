@@ -126,7 +126,7 @@ const SkillMatching = () => {
   };
 
   return (
-    <div className="min-h-screen flex bg-gradient-to-br from-slate-100 via-blue-50 to-indigo-100">
+    <div className="min-h-screen flex bg-gray-100">
 
 
       <aside className=" fixed left-0 top-0 h-screen w-44  backdrop-blur-xl border-r border-gray-200">
@@ -140,7 +140,7 @@ const SkillMatching = () => {
         <Navbar />
 
 
-        <section className="p-4 sm:p-6 lg:p-8 mt-16 ml-[220px] mb-[300px]">
+        <section className="p-4 sm:p-6 lg:p-8 mt-[100px] ml-[290px] mb-[300px] mr-[60px]">
 
            <div className="  relative overflow-hidden rounded-3xl p-8 mb-8 bg-gradient-to-r from-[#0f172a] via-[#1e3a8a] to-[#7c3aed] shadow-2xl">
 
@@ -193,9 +193,7 @@ const SkillMatching = () => {
                   <div className="h-6 w-6 rounded-full bg-gradient-to-r from-cyan-400 to-purple-500 animate-pulse shadow-[0_0_30px_#8b5cf6]"></div>
 
                 </div>
-
               </div>
-
             </div>
 
             {/* LIVE BADGE */}
@@ -417,9 +415,5 @@ const SkillMatching = () => {
     </div>
   );
 };
-
-
-
-
 
 export default SkillMatching;

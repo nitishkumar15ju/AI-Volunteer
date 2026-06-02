@@ -170,7 +170,7 @@ const Reports = () => {
         <Navbar />
 
         {/* Content */}
-        <main className="flex-1 p-4 md:p-6 md:ml-[200px] mb-[200px] mt-[80px]">
+        <main className="flex-1 p-4 md:p-6 md:ml-[290px] mr-[60px] mb-[200px] mt-[100px]">
 
           {/* Header */}
           <div className="relative overflow-hidden rounded-3xl p-8 mb-8 bg-gradient-to-r from-[#0f172a] via-[#1e3a8a] to-[#7c3aed] shadow-2xl">
@@ -346,44 +346,44 @@ const Reports = () => {
 
                 {/* Table */}
                 <div className="overflow-x-auto">
-                  <table className="w-full min-w-[700px]">
+                  <table className="w-full min-w-[700px] p-10 mb-10">
 
                     <thead className="bg-gray-50">
-                      <tr className="text-black">
-                        <th className="text-left px-6 py-4">Event</th>
-                        <th className="text-left px-6 py-4">Date</th>
-                        <th className="text-left px-6 py-4">Volunteers</th>
-                        <th className="text-left px-6 py-4">Status</th>
-                        <th className="text-left px-6 py-4">Action</th>
+                      <tr className="text-black text-lg  ">
+                        <th className="text-left pl-5">Event</th>
+                        <th className="text-left">Date</th>
+                        <th className="text-left">Volunteers</th>
+                        <th className="text-left">Status</th>
+                        <th className="text-left">Action</th>
                       </tr>
                     </thead>
 
-                    <tbody>
+                    <tbody >
                       {reports.map((report) => (
                         <tr
                           key={report.id}
                           className="border-b hover:bg-gray-50 transition"
                         >
-                          <td className="px-6 py-5">
-                            <div className="flex items-center gap-3">
+                          <td className="p-5">
+                            <div className="flex align-center  items-center gap-3">
 
                               <div className="bg-red-100 p-2 rounded-xl">
                                 <HeartHandshake className="text-red-500" />
                               </div>
 
-                              <span className="font-medium">
+                              <span className="font-medium ">
                                 {report.title}
                               </span>
                             </div>
                           </td>
 
-                          <td className="px-6 py-5">{report.date}</td>
+                          <td className="text-left">{report.date}</td>
 
-                          <td className="px-6 py-5">
+                          <td className="text-left">
                             {report.volunteers}
                           </td>
 
-                          <td className="px-6 py-5">
+                          <td className="text-left">
                             <span
                               className={`px-4 py-2 rounded-full text-sm font-medium ${report.status === "Completed"
                                 ? "bg-green-100 text-green-600"
@@ -396,7 +396,7 @@ const Reports = () => {
                             </span>
                           </td>
 
-                          <td className="px-6 py-5">
+                          <td className="text-left">
                             <button
                               onClick={() => handleView(report)}
                               className="bg-gray-900 hover:bg-black text-white px-4 py-2 rounded-xl transition"

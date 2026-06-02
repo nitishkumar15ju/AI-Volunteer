@@ -41,7 +41,7 @@ const Navbar = ({ darkMode }) => {
     <>
       {/* NAVBAR */}
       <div
-        className={`fixed top-0 lg:left-[200px] left-0 right-0 z-50 px-4 sm:px-6 py-3 shadow-md transition-all duration-300 ${darkMode
+        className={`fixed top-0 lg:left-[220px] left-0 right-0 z-50 px-4 sm:px-6 py-3  transition-all duration-300 ${darkMode
           ? "bg-black text-white"
           : "bg-white text-black"
           }`}
@@ -314,7 +314,6 @@ const Navbar = ({ darkMode }) => {
                 >
                   +Add account
                 </button>
-
                 <button
                   onClick={handleLogout}
                   className="w-full bg-red-500 text-white py-2 rounded-xl"
